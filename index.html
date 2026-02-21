@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información Importante</title>
+    <!-- Carga de Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configuración de color y fuente --><script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        // Nuevo color de fondo azul
+                        'dark-blue-bg': '#05297A',
+                        // Color amarillo basado en #F0D224
+                        'gold-standard': {
+                            DEFAULT: '#F0D224', // Color principal para encabezados y acentos
+                            light: '#FFFBEF',  // Tono muy claro para el fondo del desplazamiento
+                            dark: '#6F5C0C',   // Tono oscuro para texto y bordes
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Definición de la animación de desplazamiento vertical */
+        @keyframes scroll-up {
+            0% { transform: translateY(0); } /* Comienza con el texto en la parte superior del contenedor */
+            100% { transform: translateY(-100%); } /* Se desplaza la altura total del track hacia arriba */
+        }
+
+        /* Estilos del contenedor de desplazamiento */
+        .scrolling-container {
+            height: 300px; /* Altura de la ventana de lectura */
+            overflow: hidden; /* Oculta el texto que sale de la ventana */
+            position: relative;
+        }
+
+        /* Estilos de la pista de contenido */
+        .scroll-track {
+            position: absolute;
+            width: 100%;
+            animation: scroll-up 45s linear infinite; /* Duración ajustada */
+            /* Control para pausar el scroll al pasar el ratón */
+            animation-play-state: running;
+        }
+
+        .scroll-track:hover {
+            animation-play-state: paused;
+        }
+        
+        .info-block {
+            margin-bottom: 2rem; /* Espacio entre cada dato curioso */
+            padding: 0 1rem;
+        }
+    </style>
+</head>
+<!-- Fondo del cuerpo con el nuevo color azul oscuro -->
+<body class="bg-dark-blue-bg min-h-screen flex items-center justify-center p-4 font-sans">
+
+    <div id="carousel-container" class="w-full max-w-5xl bg-white shadow-2xl rounded-xl overflow-hidden transform transition-all duration-300">
+
+        <!-- Encabezado del Ticker (Amarillo #F0D224) -->
+        <header class="bg-gold-standard p-4 sm:p-6 text-gold-standard-dark rounded-t-xl flex items-center justify-center">
+            <!-- Icono de importancia (SVG) --><svg class="w-8 h-8 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+            </svg>
+            <h1 class="text-2xl sm:text-3xl font-bold text-center">Información Importante</h1>
+        </header>
+
+        <!-- Contenedor de Desplazamiento (Fondo Amarillo claro) -->
+        <div class="scrolling-container bg-gold-standard-light">
+            <div class="scroll-track">
+                
+                <!-- Contenido 1: Número de Tienda (Importancia) -->
+                <div class="info-block text-center border-b border-gold-standard/50 pb-4">
+                    <div class="text-4xl mb-2 text-gold-standard">🚨</div>
+                    <h2 class="text-lg font-semibold mb-1 text-gold-standard-dark">NÚMERO DE TIENDA EN QUEJAS</h2>
+                    <p class="text-gray-700 leading-snug text-sm">
+                        Recuerden la <b>importancia de colocar el número de tienda</b> en todos los casos de Quejas. La correcta catalogación es vital para el seguimiento y la resolución eficiente de incidentes.
+                    </p>
+                </div>
+
+                <!-- Contenido 2: Guía de Consulta (Documento) -->
+                <div class="info-block text-center border-b border-gold-standard/50 pb-4">
+                    <div class="text-4xl mb-2 text-gold-standard">📑</div>
+                    <h2 class="text-lg font-semibold mb-1 text-gold-standard-dark">DOCUMENTO DE CONSULTA (COORD.)</h2>
+                    <p class="text-gray-700 leading-snug text-sm">
+                        Les pido que hagan relación con el documento <b>'tiendas coordinador'</b>. Este archivo es su guía para identificar la ubicación correcta. (Si tienes dudas sobre el archivo, <b>consulta con tu jefe</b>).
+                    </p>
+                </div>
+
+                <!-- Contenido 3: Cliente no lo sabe -->
+                <div class="info-block text-center border-b border-gold-standard/50 pb-4">
+                    <div class="text-4xl mb-2 text-gold-standard">❓</div>
+                    <h2 class="text-lg font-semibold mb-1 text-gold-standard-dark">¿EL CLIENTE NO LO SABE?</h2>
+                    <p class="text-gray-700 leading-snug text-sm">
+                        ¡Es normal que nuestro cliente no sepa el número de tienda! Usa la información disponible (fecha, producto, ubicación general) y el documento 'tiendas coordinador' para registrarlo internamente.
+                    </p>
+                </div>
+
+                <!-- Contenido 4: Recordatorio Rápido (Acción) -->
+                <div class="info-block text-center pb-4">
+                    <div class="text-4xl mb-2 text-gold-standard">✅</div>
+                    <h2 class="text-lg font-semibold mb-1 text-gold-standard-dark">ACCIÓN CLAVE</h2>
+                    <p class="text-gray-700 leading-snug text-sm">
+                        Identifica la tienda con el documento de referencia y <b>coloca el número correcto</b> en el registro de la queja. Esto garantiza la calidad del dato y la resolución del servicio.
+                    </p>
+                </div>
+
+                <!-- Repetición del Bloque 1 (Para ciclo suave) -->
+                <div class="info-block text-center pt-8">
+                    <div class="text-4xl mb-2 text-gold-standard">🚨</div>
+                    <h2 class="text-lg font-semibold mb-1 text-gold-standard-dark">NÚMERO DE TIENDA EN QUEJAS</h2>
+                    <p class="text-gray-700 leading-snug text-sm">
+                        Recuerden la <b>importancia de colocar el número de tienda</b> en todos los casos de Quejas. La correcta catalogación es vital para el seguimiento y la resolución eficiente de incidentes.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pie de página (con el color oscuro para texto) -->
+        <footer class="bg-gold-standard/10 p-4 text-center text-sm text-gold-standard-dark rounded-b-xl">
+            Nota: Pausa al colocar el cursor sobre el carrusel informativo
+        </footer>
+    </div>
+</body>
+</html>
